@@ -46,7 +46,7 @@ function editContact(index) {
     document.getElementById('email').value = contact.email;
     document.getElementById('phone').value = contact.phone;
 
-    deleteContact(index); // Remove the contact from the list to avoid duplicates
+    deleteContact(index);
 }
 
 document.addEventListener('DOMContentLoaded', displayContacts);
