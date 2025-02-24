@@ -1,23 +1,20 @@
 let contacts = JSON.parse(localStorage.getItem('contacts')) || [];
 
 function displayContacts() {
-    const contactList = document.getElementById('contactList');
-    contactList.innerHTML = '';
+    const contactTableBody = document.getElementById('contactTableBody');
+    contactTableBody.innerHTML = '';
     contacts.forEach((contact, index) => {
-        const contactEntry = document.createElement('div');
-        contactEntry.innerHTML = `
-            <table>
-                <tr>
-                    <td>${contact.fname} ${contact.lname}</td>
-                    <td>Email: ${contact.email}</td>
-                    <td>Phone: ${contact.phone}</td>
-                    <td>
-                        <button onclick="editContact(${index})">Edit</button>
-                        <button onclick="deleteContact(${index})">Delete</button>
-                    </td>
-                </tr>
-            </table>`;
-        contactList.appendChild(contactEntry);
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${contact.fname}</td>
+            <td>${contact.lname}</td>
+            <td>${contact.email}</td>
+            <td>${contact.phone}</td>
+            <td>
+                <button onclick="editContact(${index})">Edit</button>
+                <button onclick="deleteContact(${index})">Delete</button>
+            </td>`;
+        contactTableBody.appendChild(row);
     });
 }
 
